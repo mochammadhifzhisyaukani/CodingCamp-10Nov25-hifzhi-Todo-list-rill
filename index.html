@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List Hifzhi Apps</title>
+
+    <!-- Link to  -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Talwind CSS CDN -->
+     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+    
+    <!-- Header section -->
+    <header>
+        <h1 class="text-2xl font-bold pb-5">Todo List Hifzhi Apps</h1>
+    </header>
+
+    <!-- main content goes here -->
+    <main>
+        <!-- Form Section -->
+        <section class="form-section">
+            <form>
+                <!-- Todo input -->
+                 <input type="text" class="border rounded p-2" id="todo-input" placeholder="Enter a new todo item">
+
+                 <!-- date input -->
+                  <input type="date" class="border rounded p-2" id="todo-date" placeholder="enter due date"> 
+            </form>
+
+            <!-- add Button  -->
+             <button type="button" onclick="addTodo();" class="border rounded p-2 text-white ml-2" id="AddTodo">Add Todo</button>
+        </section>
+
+        <!-- Action Section -->
+     <section class="flex pt-2 justify-between">
+
+         <!-- Filter Options -->
+          <button class="border rounded p-2 text-white" id="Filter">Filter Todos</button>
+
+          <!-- clear All Button -->
+         <button class="border rounded p-2 text-white" id="Clear">Clear All Todos</button>
+     </section>
+
+     <!-- Todo List Section -->
+      <section class="pt-2">
+        <header>
+            <h1 class="text-2xl font-semibold">List of Todos</h1>
+        </header>
+
+        <ul class="pt-2" id="todo-list">
+            <!-- Todo items will be dynamically added here -->
+             <li>No todos available</li>
+        </ul>
+      </section>
+    </main>
+
+    
+
+    <!-- footer section -->
+    <footer class="pt-5">
+        <p><i>&copy;2025 Todo List Hifzhi Apps</i></p>
+    </footer>
+
+
+    
+    <script src="js/script.js"></script>
+</body>
+</html>

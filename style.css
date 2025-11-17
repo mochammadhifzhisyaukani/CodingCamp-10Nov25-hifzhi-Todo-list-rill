@@ -1,0 +1,45 @@
+body {
+    justify-items: center;
+    align-content: center;
+    height: 100vh;
+    display: grid;
+}
+
+h1 {
+    font-family: Script MT Bold;
+}
+
+.form-section {
+    display: flex;
+    gap: 0px;
+}
+
+main {
+    background-color: rgb(121, 198, 240);
+    padding: 50px;
+    border-radius: 25px;
+}
+
+button {
+    border-radius: 10px;
+}
+
+#AddTodo {
+    background-color: #6fcf97;
+}
+
+#Filter {
+    background-color: #5b56fb;
+}
+
+#Clear {
+    background-color: #f25c5c;
+}
+
+#todo-input {
+    border-radius: 10px;
+}
+
+#todo-date {
+    border-radius: 10px;
+}
