@@ -17,7 +17,7 @@ function addTodo() {
         renderTodos();
     }
 }
-
+      
 /// Function to render todo items to the DOM
 function renderTodos() {
     /// Get the todo list container
@@ -43,4 +43,5 @@ function clearTodos() {
 }
 
 /// Placeholder for future filter functionality
+
 function filterTodos() { }
