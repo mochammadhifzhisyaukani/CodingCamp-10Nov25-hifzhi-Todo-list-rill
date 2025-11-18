@@ -5,68 +5,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todo List Hifzhi Apps</title>
 
-    <!-- Link to  -->
-    <link rel="stylesheet" href="style.css">
+    <!-- Link to custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
 
-    <!-- Talwind CSS CDN -->
-     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
-<body>
-    
+<body class="p-4">
+
     <!-- Header section -->
     <header>
         <h1 class="text-2xl font-bold pb-5">Todo List Hifzhi Apps</h1>
     </header>
 
-    <!-- main content goes here -->
+    <!-- Main content -->
     <main>
         <!-- Form Section -->
-        <section class="form-section">
-            <form>
-                <!-- Todo input -->
-                 <input type="text" class="border rounded p-2" id="todo-input" placeholder="Enter a new todo item">
-
-                 <!-- date input -->
-                  <input type="date" class="border rounded p-2" id="todo-date" placeholder="enter due date"> 
+        <section class="form-section mb-4">
+            <form class="flex flex-wrap gap-2">
+                <input type="text" class="border rounded p-2 w-full sm:w-auto" id="input-text" placeholder="Enter a new todo item">
+                <input type="date" class="border rounded p-2 w-full sm:w-auto" id="input-date" placeholder="Enter due date">
+                <button type="button" onclick="addTodo();" class="border rounded p-2 bg-green-600 text-white" id="AddTodo">Add Todo</button>
             </form>
-
-            <!-- add Button  -->
-             <button type="button" onclick="addTodo();" class="border rounded p-2 text-white ml-2" id="AddTodo">Add Todo</button>
         </section>
 
         <!-- Action Section -->
-     <section class="flex pt-2 justify-between">
+        <section class="flex flex-wrap gap-2 items-center mb-4">
+            <input type="date" class="border rounded p-2" id="filter-date" placeholder="Filter by date">
+            <button type="button" onclick="filterTodos()" class="border rounded p-2 bg-blue-500 text-white" id="Filter">Filter Todos</button>
+            <button type="button" onclick="resetList()" class="border rounded p-2 bg-red-500 text-white" id="Clear">Clear All Todos</button>
+        </section>
 
-         <!-- Filter Options -->
-          <button class="border rounded p-2 text-white" id="Filter">Filter Todos</button>
-
-          <!-- clear All Button -->
-         <button class="border rounded p-2 text-white" id="Clear">Clear All Todos</button>
-     </section>
-
-     <!-- Todo List Section -->
-      <section class="pt-2">
-        <header>
-            <h1 class="text-2xl font-semibold">List of Todos</h1>
-        </header>
-
-        <ul class="pt-2" id="todo-list">
-            <!-- Todo items will be dynamically added here -->
-             <li>No todos available</li>
-        </ul>
-      </section>
+        <!-- Todo List Section -->
+        <section>
+            <header>
+                <h1 class="text-2xl font-semibold">List of Todos</h1>
+            </header>
+            <ul class="pt-2" id="todo-list">
+                <li class="text-gray-500">No todos available</li>
+            </ul>
+        </section>
     </main>
 
-    
-
-    <!-- footer section -->
+    <!-- Footer section -->
     <footer class="pt-5">
         <p><i>&copy;2025 Todo List Hifzhi Apps</i></p>
     </footer>
 
-
-    
-    <script src="script.js"></script>
+    <!-- Link to JavaScript -->
+    <script src="js/script.js"></script>
 </body>
-
 </html>
