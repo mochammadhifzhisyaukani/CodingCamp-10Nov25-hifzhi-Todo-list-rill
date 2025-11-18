@@ -1,47 +1,87 @@
 /// Temporary storage for todo items
 let todos = [];
 
-function addTodo() {
-    const todoInput = document.getElementById("todo-input");
-    const todoDate = document.getElementById("todo-date");
+// Global references to DOM elements
+const todoInput = document.getElementById("input-text");
+const todoDate = document.getElementById("input-date");
+const filterInput = document.getElementById("filter-date");
+const todoList = document.getElementById("todo-list");
 
-    /// Validation
+/// Function to add a new todo item
+function addTodo() {
+    if (!todoInput || !todoDate) {
+        alert("Input elemen tidak ditemukan. Periksa kembali ID di HTML.");
+        return;
+    }
+
     if (todoInput.value === '' || todoDate.value === '') {
-        alert("Please fill in both fields.");
+        alert("Silakan isi kedua kolom terlebih dahulu.");
     } else {
-        /// Add todo item to the list
-        todos.push({ text: todoInput.value, date: todoDate.value, });
+        todos.push({ text: todoInput.value, date: todoDate.value });
         todoInput.value = '';
         todoDate.value = '';
-
         renderTodos();
     }
 }
-      
+
 /// Function to render todo items to the DOM
 function renderTodos() {
-    /// Get the todo list container
-    const todoList = document.getElementById('todo-list');
+    if (!todoList) return;
 
-    // Clear existing list
     todoList.innerHTML = '';
 
-    // Render each todo item
-    todos.forEach((todo, _) => {
+    if (todos.length === 0) {
+        todoList.innerHTML = '<li><p class="text-gray-500">Tidak ada tugas yang tersedia.</p></li>';
+        return;
+    }
+
+    todos.forEach(todo => {
         todoList.innerHTML += `
         <li>
-            <p class="text-2xl">${todo.text} <span class="text-sm text-gray-500">(${todo.date})</span></p>
+            <p class="text-2xl">${todo.text} 
+            <span class="text-sm text-gray-500">(${todo.date})</span></p>
             <hr />
         </li>`;
     });
 }
 
-/// Function to clear all todo items
-function clearTodos() {
-    todos = [];
-    renderTodos();
+/// Function to reset all todo items
+function resetList() {
+    if (!todoInput || !todoDate || !todoList) return;
+
+    if (confirm("Yakin mau reset semua daftar tugas?")) {
+        todos = [];
+        todoInput.value = "";
+        todoDate.value = "";
+        renderTodos();
+        alert("Daftar tugas berhasil di-reset!");
+    }
 }
 
-/// Placeholder for future filter functionality
+/// Function to filter todos by date
+function filterTodos() {
+    if (!filterInput || !todoList) return;
 
-function filterTodos() { }
+    const filterDate = filterInput.value;
+
+    if (filterDate === '') {
+        alert("Silakan pilih tanggal untuk memfilter.");
+        return;
+    }
+
+    const filteredTodos = todos.filter(todo => todo.date === filterDate);
+    todoList.innerHTML = '';
+
+    if (filteredTodos.length === 0) {
+        todoList.innerHTML = '<li><p class="text-gray-500">Tidak ada tugas pada tanggal tersebut.</p></li>';
+    } else {
+        filteredTodos.forEach(todo => {
+            todoList.innerHTML += `
+            <li>
+                <p class="text-2xl">${todo.text} 
+                <span class="text-sm text-gray-500">(${todo.date})</span></p>
+                <hr />
+            </li>`;
+        });
+    }
+}
